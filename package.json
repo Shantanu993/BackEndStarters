@@ -2,14 +2,18 @@
   "name": "2_professional_backend",
   "version": "1.0.0",
   "description": "A backend setup using professional approach",
+  "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon src/index.js"
   },
   "keywords": [
     "javascript",
     "backend"
   ],
   "author": "Shantanu993",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
 }
