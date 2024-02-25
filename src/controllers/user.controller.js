@@ -18,4 +18,7 @@ const registerUser = asyncHandler(async (req, res) => {
 9. return response
  */
 
+const { fullName, email, username, password } = req.body;
+console.log("email: ", email);
+
 export { registerUser };
