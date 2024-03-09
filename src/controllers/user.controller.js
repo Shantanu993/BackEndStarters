@@ -91,4 +91,14 @@ const registerUser = asyncHandler(async (req, res) => {
     .json(new ApiResponse(200, createdUser, "User registered successfully"));
 });
 
-export { registerUser };
+// Steps for login
+// 1. get details from frontend. req body -> data
+// 2. username or email
+// 3. check if user exists
+// 4. check if password is correct
+// 5. generate token - access and refresh
+// 6. send cookies
+
+const loginUser = asyncHandler(async (req, res) => {});
+
+export { registerUser, loginUser };
