@@ -99,6 +99,26 @@ const registerUser = asyncHandler(async (req, res) => {
 // 5. generate token - access and refresh
 // 6. send cookies
 
-const loginUser = asyncHandler(async (req, res) => {});
+const loginUser = asyncHandler(async (req, res) => {
+  const { email, username, password } = req.body;
+
+  if (!username || !email) {
+    throw new ApiError(400, "Username or email is required");
+  }
+
+  const user = await User.findOne({
+    $or: [{ username }, { email }],
+  });
+
+  if (!user) {
+    throw new ApiError(404, "User not found");
+  }
+
+  const isPasswordValid = await user.isPasswordCorrect(password);
+
+  if (!isPasswordValid) {
+    throw new ApiError(401, "Invalid user credentials");
+  }
+});
 
 export { registerUser, loginUser };
